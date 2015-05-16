@@ -28,6 +28,7 @@ Template['cardForm'].events({
     // else the card icon will be default and the input will turn red
 		// @TODO: refactor into a loop
 
+    /*
 		if ($input.hasClass('visa')) {
 			Session.set('cardIcon', 'fa-cc-visa');
       Session.set('iconAnimation', 'flipInY');
@@ -52,6 +53,24 @@ Template['cardForm'].events({
       Session.set('iconAnimation', '');
       $input.addClass('unknown');
 		}
+    */
+
+    var cardProps = Meteor.cardProps;
+
+    for (var i = 0; i < cardProps.length; i++) {
+      if ($input.hasClass(cardProps[i].type)) {
+        console.log(cardProps[i].type);
+        var icon = cardProps[i].icon.toString();
+        console.log(icon);
+        Session.set('cardIcon', icon);
+        Session.set('iconAnimation', 'flipInY');
+        $input.removeClass('unknown');
+      } else {
+        Session.set('cardIcon', 'fa-credit-card');
+        Session.set('iconAnimation', '');
+        $input.addClass('unknown');
+      }
+    }
 	},
 	'submit .card.form': function(e){
 		e.preventDefault();
