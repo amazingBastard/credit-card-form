@@ -14,11 +14,11 @@ iron:router
 manuelschoebel:ms-seo
 fortawesome:fontawesome
 jeffpatzer:jquery-payment
-insecure
-autopublish
 natestrauser:animate-css
 juliancwirko:s-alert
 juliancwirko:s-alert-flip
 msavin:mongol
 jparker:crypto-core
 jparker:crypto-md5
+accounts-password
+useraccounts:unstyled

@@ -62,28 +62,26 @@ There are other ways to deploy to your server besides Meteor Up. Here is a [step
 
 * Meteor Core
   * [meteor-platform](https://github.com/meteor/meteor/tree/devel/packages/meteor-platform)
+* Accounts
+  * [accounts-password](https://github.com/meteor/meteor/tree/devel/packages/accounts-password)
+* Routing
+  * [iron:router](https://github.com/iron-meteor/iron-router)
+* Security
+  * [jparker:crypto-core](https://github.com/p-j/meteor-crypto-core)
+  * [jparker:crypto-md5](https://github.com/p-j/meteor-crypto-md5)
 * UI and UX
   * [fastclick](https://github.com/meteor/meteor/tree/devel/packages/fastclick)
   * [fortawesome:fontawesome](https://github.com/MeteorPackaging/Font-Awesome/)
   * [natestrauser:animate-css](https://github.com/nate-strauser/meteor-animate-css)
   * [jeffpatzer:jquery-payment](https://github.com/stripe/jquery.payment)
   * [juliancwirko:s-alert](https://github.com/juliancwirko/meteor-s-alert/)
-* Routing
-  * [iron:router](https://github.com/iron-meteor/iron-router)
-* Security
-  * [jparker:crypto-core](https://github.com/p-j/meteor-crypto-core)
-  * [jparker:crypto-md5](https://github.com/p-j/meteor-crypto-md5)
 * Development
-  * [autopublish](https://github.com/meteor/meteor/tree/devel/packages/autopublish)
-  * [insecure](https://github.com/meteor/meteor/tree/devel/packages/insecure)
   * [msavin:mongol](https://github.com/msavin/Mongol)
   * [less](https://github.com/meteor/meteor/tree/devel/packages/less)
   * [momentjs:moment](https://github.com/moment/moment/)
 * Testing
   * [sanjo:jasmine](https://github.com/Sanjo/meteor-jasmine)
   * [velocity:html-reporter](https://github.com/meteor-velocity/html-reporter/)
-
-Make sure to remove the 'autopublish' and 'insecure' packages in production as they make your app vulnerable.
 
 ### Folder structure
 
