@@ -1,0 +1,14 @@
+<template name="layout">
+  <main class="layout">
+    <header class="header">
+      {{> header}}
+      {{> sAlert}}
+    </header>
+    <section class="view">
+      {{> yield}}
+    </section>
+    <footer class="footer">
+      {{> footer}}
+    </footer>
+  </main>
+</template>

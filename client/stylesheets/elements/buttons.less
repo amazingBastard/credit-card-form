@@ -1,0 +1,61 @@
+@import '../utilities/variables';
+
+// buttons styles
+
+.button {
+  margin: auto;
+  padding: 0.75rem 0.5rem;
+  border: 0;
+  border-radius: @space-mini;
+  background: @light;
+  color: @font-color;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-transition: all ease-in-out @slow;
+  -moz-transition: all ease-in-out @slow;
+  -o-transition: all ease-in-out @slow;
+  transition: all ease-in-out @slow;
+
+  &.fluid {
+    display: block;
+    width: @full;
+  }
+
+  &.primary {
+    color: @light;
+    background: @primary-color;
+    -moz-box-shadow: 0 2px 0 1px darken(@primary-color, 15%);
+    -webkit-box-shadow: 0 2px 0 darken(@primary-color, 15%);
+    box-shadow: 0 2px 0 1px darken(@primary-color, 15%);
+
+    &:hover {
+      color: lighten(@primary-color, 50%);
+      background: darken(@primary-color, 5%);
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    &:focus {
+      outline: 0;
+      -moz-box-shadow: inset 0 2px 0 1px darken(@primary-color, 15%);
+      -webkit-box-shadow: inset 0 2px 0 1px darken(@primary-color, 15%);
+      box-shadow: inset 0 2px 0 1px darken(@primary-color, 15%);
+    }
+
+    &:disabled {
+      color: @secondary-color;
+      background: fade(@secondary-color, 50%);
+      -moz-box-shadow: 0 2px 0 1px @secondary-color;
+      -webkit-box-shadow: 0 2px 0 1px @secondary-color;
+      box-shadow: 0 2px 0 1px @secondary-color;
+      cursor: not-allowed;
+    }
+  }
+
+	&.secondary {
+    color: @gray;
+    background: @secondary-color;
+  }
+}

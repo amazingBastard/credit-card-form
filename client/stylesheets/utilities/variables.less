@@ -1,0 +1,105 @@
+// Declare variables for use in all the template specific / main less files
+
+// Monochrome
+
+@dark:         #000;
+@gray-darker:  lighten(#000, 13.5%); // #222
+@gray-dark:    lighten(#000, 20%);   // #333
+@gray:         lighten(#000, 33.5%); // #555
+@gray-light:   lighten(#000, 46.7%); // #777
+@gray-lighter: lighten(#000, 93.5%); // #eee
+@light:        #fff;
+
+// Brand
+
+@primary-color: #3D95CE;
+@secondary-color: #707273;
+@highlight-color: #0884cc;
+@background-color: @light;
+@mute-color: #d7d7d9;
+
+// Global
+
+@font-color: @secondary-color;
+@link-color: @primary-color;
+@icon-color: @primary-color;
+@line-color: @mute-color;
+
+@background-image: url(/images/nyc.png);
+
+// Alerts
+
+@positive-color: #27AE60;
+@negative-color: #E74C3C;
+@caution-color: #F1C40F;
+@info-color: #00A2D3;
+
+// Components
+
+@fastest: 100ms;
+@faster: 150ms;
+@fast: 200ms;
+@slow: 250ms;
+@slower: 300ms;
+@slowest: 350ms;
+
+@space-mini: 0.15rem;
+@space-tiny: 0.25rem;
+@space-smaller: 0.5rem;
+@space-small: 0.75rem;
+@space-base: 1rem;
+@space-normal: 1.25rem;
+@space-medium: 1.5rem;
+@space-large: 1.75rem;
+@space-larger: 2rem;
+@space-largest: 2.5rem;
+@space-huge: 3rem;
+@space-jumbo: 6rem;
+
+@one-eigth: 12.5%;
+@one-quarter: 25%;
+@one-third: 33.333%;
+@one-half: 50%;
+@two-thirds: 66.666%;
+@three-quarters: 75%;
+@full: 100%;
+
+// Typography
+
+@font-family-sans-serif: 'Open Sans', Helvetica, Arial, sans-serif;
+@font-family-serif: 'Lora', Georgia, 'Times New Roman', Times, serif;
+@font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+@font-family-base: @font-family-sans-serif;
+
+@font-size-smallest: 0.25rem;
+@font-size-smaller: 0.5rem;
+@font-size-small: 0.75rem;
+@font-size-base: 1rem;
+@font-size-large: 1.25rem;
+@font-size-larger: 1.5rem;
+@font-size-largest: 1.75rem;
+@font-size-x-large: 2rem;
+@font-size-x-larger: 2.5rem;
+@font-size-x-largest: 3rem;
+@font-size-huge: 3.5rem;
+@font-size-jumbo: 4rem;
+
+@line-height-base: 1;
+@line-height-medium: 1.25;
+@line-height-large: 1.5;
+@line-height-computed: floor((@font-size-base * @line-height-base));
+
+@headings-font-family: inherit;
+@headings-font-weight: 500;
+@headings-line-height: 1.1;
+@headings-color: inherit;
+
+// Media Queries
+
+@phone-width: 30em;
+@tablet-width: 48em;
+@desktop-width: 62em;
+@medium-desktop-width: 80em;
+@large-desktop-width: 90em;
+@larger-desktop-width: 120em;
+@largest-desktop-width: 160em;

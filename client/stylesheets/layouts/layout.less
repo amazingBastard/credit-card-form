@@ -1,0 +1,37 @@
+@import '../utilities/variables';
+
+// layout styles
+
+html {
+  width: @full;
+  height: @full;
+
+  body {
+    width: @full;
+    height: @full;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background-color: @background-color;
+    background: @background-image;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: @one-half @one-half;
+    background-repeat: no-repeat;
+
+    .layout {
+      position: relative;
+      min-height: @full;
+      overflow: hidden;
+      background: -moz-radial-gradient(center, ellipse cover, fade(@light, 0) 0%, fade(@light, @three-quarters) @full);
+      background: -webkit-gradient(radial, center center, 0px, center center, @full, color-stop(0%, fade(@light, 0)), color-stop(@full, fade(@light, @three-quarters)));
+      background: -webkit-radial-gradient(center, ellipse cover, fade(@light, 0) 0%, fade(@light, @three-quarters) @full);
+      background: -o-radial-gradient(center, ellipse cover, fade(@light, 0) 0%, fade(@light, @three-quarters) @full);
+      background: -ms-radial-gradient(center, ellipse cover, fade(@light, 0) 0%, fade(@light, @three-quarters) @full);
+      background: radial-gradient(ellipse at center, fade(@light, 0) 0%, fade(@light, @three-quarters) @full);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bfffffff', GradientType=1 );
+    }
+	}
+}

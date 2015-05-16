@@ -1,0 +1,25 @@
+<template name="about">
+  <div class="about animated fadeIn">
+	  <h2>Coding Challenge <small>Credit Card Form</small></h2>
+    <p>Credit Card form prototype built with Meteor. Features a fully functioning card form that:</p>
+    <ul>
+      <li>Validates a card number via the Luhn-10 Algorithm (Disregards CVV).</li>
+      <li>Changes the card logo inside of the form depending on what type of card is being entered with a flip animation.</li>
+      <li>If the card is invalid, the card box becomes a nice shade of red.</li>
+      <li>When the form is submitted, it disables itself for three (3) seconds, inserts and logs an object with the input value.</li>
+    </ul>
+    <h3>Installation</h3>
+    <p>Make sure <a href="http://docs.meteor.com/#/full/" target="_blank">Meteor is installed</a>. You can run this command to install it:</p>
+    <pre>curl https://install.meteor.com/ | sh</pre>
+    <p>If meteor is installed, just go into the directory:</p>
+    <pre>cd mtr-ccform</pre>
+    <p>and run meteor to start a local server</p>
+    <pre>meteor</pre>
+    <h3>Stripe jQuery Payment</h3>
+    <p>Credit Card validation is accomplished with the <a href="https://github.com/jpatzer/meteor-jquery-payment" target="_blank">jQuery Payment Meteor Package</a>.</p>
+
+    <h3>Testing</h3>
+    <p>Testing is handled by <a href="http://velocity.meteor.com/" target="_blank">Velocity</a> with the <a href="https://github.com/Sanjo/meteor-jasmine/" target="_blank">Jasmine test framework</a>.</p>
+
+	</div>
+</template>

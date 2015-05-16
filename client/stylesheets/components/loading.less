@@ -1,0 +1,22 @@
+@import '../utilities/variables';
+
+// loading styles
+
+.loading.component {
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: @full;
+  height: @full;
+	background: fade(@gray-darker, 75%);
+
+	.loader {
+		width: @space-jumbo;
+		margin: @one-half auto;
+
+		.fa-spinner {
+		  color: @primary-color;
+			font-size: @space-jumbo;
+    }
+  }
+}

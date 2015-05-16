@@ -1,0 +1,103 @@
+@import '../utilities/variables';
+
+// forms styles
+
+.form.component {
+	padding: @space-base;
+  border-radius: @space-mini;
+
+	&.card {
+	  margin: 25vh auto;
+		background: @background-color;
+		box-shadow: 0 0 @space-mini @space-mini fade(@gray, 50%);
+
+		@media (min-width: @tablet-width) {
+			width: @one-half;
+		}
+
+		@media (min-width: @desktop-width) {
+			width: @one-quarter;
+		}
+  }
+
+	.input {
+		display: block;
+    width: @full;
+		height: @space-larger;
+		padding: @space-tiny;
+    border: 0;
+		background: fade(@primary-color, 15%);
+		color: @font-color;
+		font-size: @font-size-base;
+    line-height: @line-height-large;
+		-webkit-transition: all ease-in-out @slow;
+		-moz-transition: all ease-in-out @slow;
+    -o-transition: all ease-in-out @slow;
+    transition: all ease-in-out @slow;
+		-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+		&:focus {
+			-moz-box-shadow: inset @space-tiny 0 0 0 fade(@primary-color, 30%);
+			-webkit-box-shadow: inset @space-tiny 0 0 0 fade(@primary-color, 30%);
+			box-shadow: inset @space-tiny 0 0 0 fade(@primary-color, 30%);
+			outline: 0;
+		}
+
+		&:hover {
+			background: fade(@primary-color, 20%);
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+			background: fade(@secondary-color, 15%);
+
+			&:hover {
+				background: fade(@secondary-color, 20%);
+			}
+		}
+
+		&.card {
+
+			@media (min-width: @tablet-width) {
+				padding-right: @space-huge;
+				text-align: center;
+			}
+
+			&.unknown {
+				background: fade(@negative-color, 15%);
+				color: fade(@negative-color, 50%);
+
+				&:focus {
+					-moz-box-shadow: inset @space-tiny 0 0 0 fade(@negative-color, 30%);
+					-webkit-box-shadow: inset @space-tiny 0 0 0 fade(@negative-color, 30%);
+					box-shadow: inset @space-tiny 0 0 0 fade(@negative-color, 30%);
+				}
+
+				&:hover {
+					background: fade(@negative-color, 20%);
+				}
+			}
+		}
+	}
+
+	.form.group {
+		position: relative;
+		width: @full;
+		margin-bottom: @space-base;
+
+		.icon {
+			position: absolute;
+			top: 0;
+		  left: 0;
+		  padding: @space-smaller;
+		  padding-left: @space-small;
+			color: @secondary-color;
+		}
+
+		.input {
+			padding-left: @space-huge;
+		}
+	}
+}

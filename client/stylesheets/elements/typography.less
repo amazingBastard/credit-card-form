@@ -1,0 +1,146 @@
+@import '../utilities/variables';
+
+// typography styles
+
+html {
+
+  body {
+    color: @secondary-color;
+		font-family: @font-family-base;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+
+    p, a, li, pre, code {
+      font-size: @font-size-base;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-large;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-larger;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-largest;
+      }
+    }
+
+    a {
+      color: @primary-color;
+
+      &:hover,
+      &:focus {
+        color: @secondary-color;
+      }
+    }
+
+    pre {
+      padding: @space-base;
+      color: @light;
+      background: @gray-dark;
+      border-radius: @space-mini;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: darken(@secondary-color, 5%);
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: @font-size-x-large;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-x-larger;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-x-largest;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-huge;
+      }
+    }
+
+    h2 {
+      font-size: @font-size-largest;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-x-large;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-x-larger;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-x-largest;
+      }
+    }
+
+    h3 {
+      font-size: @font-size-larger;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-largest;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-x-large;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-x-larger;
+      }
+    }
+
+    h4 {
+      font-size: @font-size-large;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-larger;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-largest;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-x-large;
+      }
+    }
+
+    h5 {
+      font-size: @font-size-base;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-large;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-larger;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-largest;
+      }
+    }
+
+    h6 {
+      font-size: @font-size-small;
+
+      @media (min-width: @tablet-width) {
+        font-size: @font-size-base;
+      }
+
+      @media (min-width: @desktop-width) {
+        font-size: @font-size-large;
+      }
+
+      @media (min-width: @large-desktop-width) {
+        font-size: @font-size-larger;
+      }
+    }
+	}
+}
