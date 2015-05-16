@@ -21,54 +21,25 @@ Template.cardForm.rendered = function() {
 Template['cardForm'].events({
 	'keyup .card.form': function(e) {
 		e.preventDefault();
-		var $input = $('.card.input');
+		var $input = $('.card.input'),
+        cardProps = Meteor.cardProps,
+        animationClass = 'flipInY',
+        errorClass = 'unknown',
+        defaultIcon = 'fa-credit-card';
 
     // if the input has a verified card type
     // add the icon of the card type with a flip animation
-    // else the card icon will be default and the input will turn red
-		// @TODO: refactor into a loop
-
-    /*
-		if ($input.hasClass('visa')) {
-			Session.set('cardIcon', 'fa-cc-visa');
-      Session.set('iconAnimation', 'flipInY');
-      $input.removeClass('unknown');
-		}
-		else if ($input.hasClass('amex')) {
-			Session.set('cardIcon', 'fa-cc-amex');
-      Session.set('iconAnimation', 'flipInY');
-      $input.removeClass('unknown');
-		}
-		else if ($input.hasClass('discover')) {
-			Session.set('cardIcon', 'fa-cc-discover');
-      Session.set('iconAnimation', 'flipInY');
-      $input.removeClass('unknown');
-		}
-		else if ($input.hasClass('mastercard')) {
-			Session.set('cardIcon', 'fa-cc-mastercard');
-      Session.set('iconAnimation', 'flipInY');
-      $input.removeClass('unknown');
-		} else {
-			Session.set('cardIcon', 'fa-credit-card');
-      Session.set('iconAnimation', '');
-      $input.addClass('unknown');
-		}
-    */
-
-    var cardProps = Meteor.cardProps;
-
+    // else if input is unknown
+    // card icon will default and the input will turn red
     for (var i = 0; i < cardProps.length; i++) {
       if ($input.hasClass(cardProps[i].type)) {
-        console.log(cardProps[i].type);
-        var icon = cardProps[i].icon.toString();
-        console.log(icon);
-        Session.set('cardIcon', icon);
-        Session.set('iconAnimation', 'flipInY');
-        $input.removeClass('unknown');
-      } else {
-        Session.set('cardIcon', 'fa-credit-card');
+        var cardIcon = cardProps[i].icon.toString();
+        Session.set('cardIcon', cardIcon);
+        Session.set('iconAnimation', animationClass);
+        $input.removeClass(errorClass);
+      } else if ($input.hasClass(errorClass)) {
+        Session.set('cardIcon', defaultIcon);
         Session.set('iconAnimation', '');
-        $input.addClass('unknown');
       }
     }
 	},
