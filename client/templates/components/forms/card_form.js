@@ -14,13 +14,6 @@ Template.cardForm.rendered = function() {
   // set the cardIcon session to the default credit card icon
   Session.set('cardIcon', 'fa-credit-card');
 
-  var myStringArray = Meteor.cardProps;
-  var arrayLength = myStringArray.length;
-  for (var i = 0; i < arrayLength; i++) {
-    console.log(myStringArray[i]);
-    //Do something
-  };
-
   // focus on input when template renders
   $input.focus();
 };
@@ -30,7 +23,10 @@ Template['cardForm'].events({
 		e.preventDefault();
 		var $input = $('.card.input');
 
-		// @TODO: refactor - loop
+    // if the input has a verified card type
+    // add the icon of the card type with a flip animation
+    // else the card icon will be default and the input will turn red
+		// @TODO: refactor into a loop
 
 		if ($input.hasClass('visa')) {
 			Session.set('cardIcon', 'fa-cc-visa');
@@ -79,11 +75,17 @@ Template['cardForm'].events({
       // log the successful card form submit
 			console.log('New card: ' + newCard);
 
-      // insecure allows me to insert into the cards collection
-      // ideally, you want this handled via method on the server
+      // for now a simple clientside insert does the trick
+			Cards.insert(newCard);
+      // @NOTE: the insecure package allows me to easily insert anything into the db
+      // although this makes it easier to test a prototype
+      // ideally, you want this handled via methods on the server
       // you would also secure the app behind a login
       // and only publish the cards collection to the logged in user
-			Cards.insert(newCard);
+      // the Mongol package allows you to insepct your database in the browser
+      // press CTRL + M to use Mongol
+      // you can also type meteor mongo in the terminal
+      // or query your collections from the console
 
       // flashing a message for ux purposes so user is aware of success
 			sAlert.success('Your card was added!');
@@ -91,6 +93,7 @@ Template['cardForm'].events({
       // reseting the cardIcon session to the default state
       // as the card icon was changed through the keyup event
 			Session.set('cardIcon', 'fa-credit-card');
+      Session.set('iconAnimation', '');
 
       // resetting the form so user can easily add a new card
 			$form[0].reset();
@@ -121,7 +124,7 @@ Template['cardForm'].events({
       // so that shake animation can play again
       // if user makes another error
       setTimeout(function() {
-        Session.set('animation', '');
+        Session.set('formAnimation', '');
       },1000);
 
       // focus back on the input and select the text
