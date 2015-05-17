@@ -9,5 +9,14 @@
     padding: @space-base;
     background: @background-color;
     border-radius: @space-mini;
+
+    @media (min-width: @desktop-width) {
+      width: @three-quarters;
+      margin: auto;
+    }
+
+    @media (min-width: @larger-desktop-width) {
+      width: @one-half;
+    }
   }
 }
