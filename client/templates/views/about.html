@@ -33,8 +33,62 @@
     <p>Take a look at <strong>/client/templates/components/forms/card_form.js</strong> to see the full code for the card form.</p>
     <h4>Configs</h4>
     <p>Configs to the accounts, alerts, router, and seo packages are located in: <strong>/client/config/</strong></p>
+    <p>These are generally configs for packages that are used throughout the app. It's nice to put them in one place for easy access.</p>
+    <h4>Template Helpers</h4>
+    <p>Meteor makes use of spacebars which is similar to handlebars but made to work with Meteor. Helpers are great for adding logic and data contexts to your HTML templates.</p>
+    <p>I've defined all the helpers in: <strong>/client/lib/spacebar_helpers.js</strong></p>
+    <p>It's also possible to define your helpers in the template you're working with. For example, if you have a helper specific to your header or footer template you can define it to that specific template. The advantage of adding helpers in lib allows you to call them globally in any template.</p>
+    <h4>Constants</h4>
+    <p>I defined some app constants in: <strong>/client/lib/constants.js</strong></p>
+    <p>Mainly static data like the app name and description as well as other meta data. I also created a card property array that I reference in a keyup event for the card form.</p>
+    <p>Generally, having static data like this isn't best practice but using constants for small apps could save a lot of headaches from having to pull them from the server.</p>
+    <h4>Stylesheets</h4>
+    <p>I make use of the less package when it comes to styling. The structure mirrors the templates structure so its easier to manage all your styles as the app grows in size.</p>
+    <p>I defined all variables used in the stylesheets in: <strong>/client/stylesheets/utilities/variables.less</strong></p>
+    <p>This lets you change all the apps brand hex, fonts, backgrounds, alerts, animation speeds, margin/padding sizes, widths, media queries, etc...</p>
+    <p>Most reusable component styles such as buttons, forms, etc will be found in: <strong>/client/stylesheets/components/</strong></p>
+    <p>Meanwhile, individual styles for views will be in: <strong>/client/stylesheets/views/</strong></p>
+    <h4>Templates</h4>
+    <p>I try to break down my templates into components I can reuse later. For example, if I have a similar form for creating and editing a post, it would be better if these two views call the same postForm template. Different form actions can then be toggled with the use of helpers depending on which view the user is on.</p>
+    <h4>Models</h4>
+    <p>Models is where you'll place all the database collections. In this example there's only the Cards collection.</p>
+    <p>Besides defining the global variable Cards as a new Mongo collection. We also setup the crud allow rules. Since we only want logged in users inserting new cards, we establish an owner with the current user's id.</p>
+    <p>Using the collection_helpers package we can add helpers on the server side for your collections. This gives us an added advantage since we won't need to subscribe to the collection on the client.</p>
+    <p>We can also add Methods to the collection via the Meteor.method function. In this example I just created a method to insert new cards.</p>
+    <p>See the code for this in <strong>/models/cards.js</strong></p>
+    <h4>Router</h4>
+    <p>The app uses the iron:router package to give us routing functionality. We can also create routes for the server but in this example I've only created two routes: <strong>/</strong> and <strong>/about</strong>. These routes live in: <strong>/router/routes.js</strong></p>
+    <h4>Server</h4>
+    <p>All server related code should be placed in the server dir. Meteor is smart enough to know that code in the server dir should be run on the server. Likewise, anything in the client dir will run on the client.</p>
+    <p>Since this example is client heavy, a lot of the code can be found on the client, specifically in the card_form file.</p>
+    <p>The server usually handles things related to the database, such as publications: <strong>/server/publications/cards.js</strong></p>
+    <p>Here I'm just publishing the Cards collection for the current user. This allows me to manage what gets sent to the client. Since we don't need everyone's cards pushed to the client, we're only publishing the current users cards. This makes the app faster in the long run once our database grows.</p>
     <h4>Testing</h4>
-    <p>Testing is handled by <a href="http://velocity.meteor.com/" target="_blank">Velocity</a> with the <a href="https://github.com/Sanjo/meteor-jasmine/" target="_blank">Jasmine test framework</a>.</p>
-
+    <p>Testing is handled by <a href="http://velocity.meteor.com/" target="_blank">Velocity</a>. I decided to use the Jasmine framework since I'm more familiar with it but Velocity gives you the options to use mocha, cucumber, robot, etc...</p>
+    <p>When you run the app locally, an HTML reporter will be available so you can check the status of the tests. The velocity reporter can be toggled with the button on the top right.</p>
+    <p>All the tests will be in the tests directory. I didn't have enough time to complete all the tests but you'll fund samples of the tests I did manage to finish.</p>
+    <h3>Structure</h3>
+    <pre>
+      client/             # Client folder
+        compatibility/      # Libraries which create a global variable
+        config/             # Configuration files (on the client)
+        lib/                # Library files that get executed first
+        startup/            # Javascript files on Meteor.startup()
+        stylesheets         # LESS files
+      	templates/          # Contains all templates
+          layouts/            # Router layouts
+          views/              # All the views
+          components/         # UI elements and components (i.e. forms, actions, etc...)
+      models/             # Model files, for each Meteor.Collection
+      private/            # Private files
+      public/             # Public files
+      router/             # All routes
+      server/             # Server folder
+        fixtures/           # Meteor.Collection fixtures defined
+        lib/                # Server side library folder
+        publications/       # Collection publications
+        startup/            # On server startup
+      tests/              # All tests
+    </pre>
 	</div>
 </template>
