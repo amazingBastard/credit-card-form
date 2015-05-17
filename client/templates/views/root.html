@@ -1,5 +1,10 @@
 <template name="root">
 	<div class="root animated fadeIn">
-		{{> cardForm}}
+		{{#if currentUser}}
+		  {{> cardForm}}
+		{{else}}
+		  <p class="animated tada info">login with: <span class="label">test // testtest</span></p>
+		  {{> atForm}}
+		{{/if}}
 	</div>
 </template>

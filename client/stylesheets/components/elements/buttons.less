@@ -1,8 +1,9 @@
-@import '../utilities/variables';
+@import '../../utilities/variables';
 
 // buttons styles
 
-.button {
+.button,
+.at-btn {
   margin: auto;
   padding: 0.75rem 0.5rem;
   border: 0;
@@ -17,12 +18,14 @@
   -o-transition: all ease-in-out @slow;
   transition: all ease-in-out @slow;
 
-  &.fluid {
+  &.fluid,
+  &.submit {
     display: block;
     width: @full;
   }
 
-  &.primary {
+  &.primary,
+  &.submit {
     color: @light;
     background: @primary-color;
     -moz-box-shadow: 0 2px 0 1px darken(@primary-color, 15%);
