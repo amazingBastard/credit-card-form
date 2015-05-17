@@ -1,0 +1,28 @@
+@import '../../utilities/variables';
+
+// alerts styles
+
+.at-error {
+	margin-bottom: @space-base;
+  padding: @space-base;
+	background: fade(@negative-color, 25%);
+	border-radius: @space-mini;
+	color: @negative-color;
+
+	p {
+		margin: 0;
+	}
+}
+
+.at-input {
+
+	&.has-error {
+
+		span {
+			display: block;
+			margin: -@space-smaller 0 @space-base;
+			color: @negative-color;
+			font-size: @font-size-small;
+		}
+	}
+}

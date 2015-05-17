@@ -11,15 +11,20 @@ Demo here: [ccform.meteor.com](http://ccform.meteor.com). You can use the test u
 
 <!-- toc -->
 
-* [How to use](#how-to-use)
+* [Installation](#installation)
   * [Requirements](#requirements)
-  * [Installation](#installation)
+  * [Localhost](#localhost)
   * [Deployments](#deployments)
+* [Documentation](#documentation)
   * [Configs](#configs)
   * [Template Helpers](#template-helpers)
   * [Constants](#constants)
   * [Stylesheets](#stylesheets)
   * [Templates](#templates)
+  * [Models](#models)
+  * [Router](#router)
+  * [Server](#server)
+  * [Tests](#tests)
 * [Structure](#structure)
   * [Packages used](#packages-used)
   * [Folder structure](#folder-structure)
@@ -27,7 +32,7 @@ Demo here: [ccform.meteor.com](http://ccform.meteor.com). You can use the test u
 
 <!-- toc stop -->
 
-## How to use
+## Installation
 
 ### Requirements
 
@@ -37,7 +42,9 @@ Make sure [Meteor is installed and up to date](https://www.meteor.com/install) o
 curl https://install.meteor.com/ | sh
 ```
 
-### Installation
+### Localhost
+
+Run a local server with the meteor command
 
 ```
 cd mtr-ccform
@@ -46,18 +53,40 @@ meteor
 
 ### Deployments
 
-It is highly recommended to use [Meteor Up](https://github.com/arunoda/meteor-up) for easy deployments.
+Most would recommended to use [Meteor Up](https://github.com/arunoda/meteor-up) for easy deployments.
 Have a look at the repository for more information.
 
 There are other ways to deploy to your server besides Meteor Up. Here is a [step by step guide from Digital Ocean](http://devo.ps/blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes/).
 
+You can also use Meteor's native deployment (this is how I deployed the demo). This could be a good way to test your app in a production environment without any heavy lifting. So far, it's only possible to deploy to the meteor url using this method.
+
+```
+meteor deploy yourappname.meteor.com
+```
+
+## Documentation
+
+### Stripe jQuery Payments
+
+Credit Card validation is accomplished with the [jQuery Payment Meteor Package](https://github.com/jpatzer/meteor-jquery-payment). Have a look at the repository for more information.
+
+I make use of the formatCardNumber function so that all inputs of cards in the form will be validated for card type and validity. If the card is valid, it will add spaces every four numbers.
+
+```
+$('.card.input').payment('formatCardNumber');
+```
+
+I also use the validateCardNumber function to make sure the card that was entered was valid before it's submitted.
+
+```
+$.payment.validateCardNumber(inputValue)
+```
+
+Take a look at **/client/templates/components/forms/card_form.js** to see the full code for the card form.
+
 ### Configs
 
-Configs to the accounts, alerts, router, and seo packages are located in:
-
-```
-/client/config/
-```
+Configs to the accounts, alerts, router, and seo packages are located in: **/client/config/***
 
 ### Template Helpers
 
@@ -106,7 +135,53 @@ Meanwhile, individual styles for views will be in:
 
 ### Templates
 
+Templates can be inserted anywhere in your app like so:
 
+```
+{{> yourTemplateName}}
+```
+
+This is why I try to break down my templates into components I can reuse later. For example, if I have a similar form for creating and editing a post, it would be better if these two views call the same postForm template. Different form actions can then be toggled with the use of helpers depending on which view the user is on.
+
+### Models
+
+Models is where you'll place all the database collections. In this example there's only the Cards collection.
+
+Besides defining the global variable Cards as a new Mongo collection. We also setup the crud allow rules. Since we only want logged in users inserting new cards, we establish an owner with the current user's id.
+
+Using the collection_helpers package we can add helpers on the server side for your collections. This gives us an added advantage since we won't need to subscribe to the collection on the client.
+
+We can also add Methods to the collection via the Meteor.method function. In this example I just created a method to insert new cards.
+
+### Router
+
+The app uses the iron:router package to give us routing functionality. We can also create routes for the server but in this example I'm only created two routes: **/ and /about**:
+
+```
+/router/routes.js
+```
+
+### Server
+
+All server related code should be placed in the server dir. Meteor is smart enough to know that code in the server dir should be run on the server. Likewise, anything in the client dir will run on the client.
+
+Since this example is client heavy, a lot of the code can be found on the client, specifically in the card_form file.
+
+The server usually handles things related to the database, such as publications.
+
+```
+/server/publications/cards.js
+```
+
+Here I'm just publishing the Cards collection for the current user. This allows me to manage what gets sent to the client. Since we don't need everyone's cards pushed to the client, we're only publishing the current users cards. This makes the app faster in the long run once our database grows.
+
+### Tests
+
+Testing is handled by the [Velocity package](http://velocity.meteor.com/). I decided to use the Jasmine framework since I'm more familiar with it but Velocity gives you the options to use mocha, cucumber, robot, etc...
+
+When you run the app locally, an HTML reporter will be available so you can check the status of the tests. The velocity reporter can be toggled with the button on the top right.
+
+All the tests will be in the tests directory.
 
 ## Structure
 

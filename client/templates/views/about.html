@@ -9,16 +9,31 @@
       <li>When the form is submitted, it disables itself for three (3) seconds, inserts and logs an object with the input value.</li>
     </ul>
     <h3>Installation</h3>
+    <h4>Requirements</h4>
     <p>Make sure <a href="http://docs.meteor.com/#/full/" target="_blank">Meteor is installed</a>. You can run this command to install it:</p>
     <pre>curl https://install.meteor.com/ | sh</pre>
+    <h4>Localhost</h4>
     <p>If meteor is installed, just go into the directory:</p>
     <pre>cd mtr-ccform</pre>
     <p>and run meteor to start a local server</p>
     <pre>meteor</pre>
-    <h3>Stripe jQuery Payment</h3>
-    <p>Credit Card validation is accomplished with the <a href="https://github.com/jpatzer/meteor-jquery-payment" target="_blank">jQuery Payment Meteor Package</a>.</p>
-
-    <h3>Testing</h3>
+    <h4>Deployments</h4>
+    <p>Most would recommended to use <a href="https://github.com/arunoda/meteor-up" target="_blank">Meteor Up</a> for easy deployments.</p>
+    <p>There are other ways to deploy to your server besides Meteor Up. Here is a <a href="http://devo.ps/blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes/" target="_blank">step by step guide from Digital Ocean</a></p>
+    <p>You can also use Meteor's native deployment (this is how I deployed the demo). This could be a good way to test your app in a production environment without any heavy lifting. So far, it's only possible to deploy to the meteor url using thiss method.</p>
+    <pre>meteor deploy ccform.meteor.com</pre>
+    <p>You can deploy to any sub domain as long as it's available</p>
+    <h3>Documentation</h3>
+    <h4>Stripe jQuery Payments</h4>
+    <p>Credit Card validation is accomplished with the <a href="https://github.com/jpatzer/meteor-jquery-payment" target="_blank">jQuery Payment Meteor Package</a>. Have a look at the repository for more information.</p>
+    <p>I make use of the formatCardNumber function so that all inputs of cards in the form will be validated for card type and validity. If the card is valid, it will add spaces every four numbers.</p>
+    <pre>$('.card.input').payment('formatCardNumber');</pre>
+    <p>I also use the validateCardNumber function to make sure the card that was entered was valid before it's submitted.</p>
+    <pre>$.payment.validateCardNumber(inputValue)</pre>
+    <p>Take a look at <strong>/client/templates/components/forms/card_form.js</strong> to see the full code for the card form.</p>
+    <h4>Configs</h4>
+    <p>Configs to the accounts, alerts, router, and seo packages are located in: <strong>/client/config/</strong></p>
+    <h4>Testing</h4>
     <p>Testing is handled by <a href="http://velocity.meteor.com/" target="_blank">Velocity</a> with the <a href="https://github.com/Sanjo/meteor-jasmine/" target="_blank">Jasmine test framework</a>.</p>
 
 	</div>
