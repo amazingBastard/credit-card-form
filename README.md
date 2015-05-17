@@ -1,12 +1,16 @@
 # VENMO Coding Challenge
 
-Credit Card form prototype built with Meteor.
+Credit Card form prototype built with Meteor. Features a fully functioning card form that:
 
-Demo here: [ccform.meteor.com](http://ccform.meteor.com).
+* Validates a card number via the Luhn-10 Algorithm (Disregards CVV).
+* Changes the card logo inside of the form depending on what type of card is being entered with a flip animation.
+* If the card is invalid, the card box becomes a nice shade of red.
+* When the form is submitted, it disables itself for three (3) seconds, inserts and logs an object with the input value.
+
+Demo here: [ccform.meteor.com](http://ccform.meteor.com). You can use the test user info to login: **test // testtest**.
 
 <!-- toc -->
 
-* [Features](#features)
 * [How to use](#how-to-use)
   * [Requirements](#requirements)
   * [Installation](#installation)
@@ -19,18 +23,6 @@ Demo here: [ccform.meteor.com](http://ccform.meteor.com).
 * [License](#license)
 
 <!-- toc stop -->
-
-## Features
-
-* Fully functioning card form that:
-  * Validates a card number via the Luhn-10 Algorithm. (Disregard CVV.)
-  * Changes the card logo inside of the form depending on what type of card is being entered.
-    * The logo flips (3D transforms) from default to card type (visa, master card, amex) upon recognition.
-  * If the card is invalid, the card box becomes [a nice shade of] red.
-  * When the form is submitted, it should disable itself for 3 seconds and log some sort of success.
-  * Form built as a reusable front-end component.
-* Styling the card form to match the mock up
-  * Add hover and focus states to the button
 
 ## How to use
 
@@ -48,6 +40,27 @@ curl https://install.meteor.com/ | sh
 cd mtr-ccform
 meteor
 ```
+
+### Configs
+
+Configs to the accounts, alerts, router, and seo packages are located in:
+
+```
+/client/config/
+```
+
+### Template Helpers
+
+Meteor makes use of spacebars which is similar to handlebars but made to work with Meteor. Helpers are great for adding logic and data contexts to your HTML templates.
+
+I've defined all the helpers in:
+
+```
+/client/lib/spacebar_helpers.js
+```
+
+It's also possible to define your helpers in the template you're working with. For example, if you have a helper specific to your header or footer template you can define it to that specific template. The advantage of adding helpers in lib allows you to call them globally in any template.
+
 
 ### Deployments
 

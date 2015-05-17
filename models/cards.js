@@ -37,8 +37,8 @@ Meteor.methods({
       throw new Meteor.Error('not-logged-in', 'You need to login to add a card');
 
     // ensure card input has a value
-    if (!cardAttributes.excuse)
-      throw new Meteor.Error('no-card-entry', 'Please enter your card numbers');
+    if (!cardAttributes.card)
+      throw new Meteor.Error('no-card-entry', 'Please enter a valid card number');
 
     // pick out the whitelisted keys
     var newCard = _.extend(_.pick(cardAttributes, 'card'), {

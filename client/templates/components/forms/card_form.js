@@ -37,9 +37,11 @@ Template['cardForm'].events({
         Session.set('cardIcon', cardIcon);
         Session.set('iconAnimation', animationClass);
         $input.removeClass(errorClass);
-      } else if ($input.hasClass(errorClass)) {
-        Session.set('cardIcon', defaultIcon);
-        Session.set('iconAnimation', '');
+      } else {
+        if ($input.hasClass(errorClass)) {
+          Session.set('cardIcon', defaultIcon);
+          Session.set('iconAnimation', '');
+        }
       }
     }
 	},
@@ -62,40 +64,40 @@ Template['cardForm'].events({
 				    card: encryptedValue
 			    };
 
-      // log the successful card form submit
-			console.log('New card: ' + newCard);
-
-      // for now a simple clientside insert does the trick
-			Cards.insert(newCard);
-      // @NOTE: the insecure package allows me to easily insert anything into the db
-      // although this makes it easier to test a prototype
-      // ideally, you want this handled via methods on the server
-      // you would also secure the app behind a login
-      // and only publish the cards collection to the logged in user
-      // the Mongol package allows you to insepct your database in the browser
+      // insert new card into db by calling insertCard method
+      // @NOTE Mongol allows you to insepct your database in the browser
       // press CTRL + M to use Mongol
       // you can also type meteor mongo in the terminal
       // or query your collections from the console
+      Meteor.call('insertCard', newCard, function(error) {
+        if (error) {
+          // log the insert error
+          console.log(error.reason);
+        } else {
+          // log the successful card form submit
+    			console.log('New card added: ' + newCard);
 
-      // flashing a message for ux purposes so user is aware of success
-			sAlert.success('Your card was added!');
+          // flashing a message for ux purposes so user is aware of success
+    			sAlert.success('Your card was added!');
 
-      // reseting the cardIcon session to the default state
-      // as the card icon was changed through the keyup event
-			Session.set('cardIcon', 'fa-credit-card');
-      Session.set('iconAnimation', '');
+          // reseting the cardIcon session to the default state
+          // as the card icon was changed through the keyup event
+    			Session.set('cardIcon', 'fa-credit-card');
+          Session.set('iconAnimation', '');
 
-      // resetting the form so user can easily add a new card
-			$form[0].reset();
+          // resetting the form so user can easily add a new card
+    			$form[0].reset();
 
-      // disable the form for 3 seconds
-      // alert and form disable have the same timout
-			$('.card.form :input').prop('disabled', true);
-			setTimeout(function() {
-				$('.card.form :input').prop('disabled', false);
-        // focus back on input so user can easily add a new card
-				$input.focus();
-			}, speed);
+          // disable the form for 3 seconds
+          // alert and form disable have the same timout
+    			$('.card.form :input').prop('disabled', true);
+    			setTimeout(function() {
+    				$('.card.form :input').prop('disabled', false);
+            // focus back on input so user can easily add a new card
+    				$input.focus();
+    			}, speed);
+        }
+      });
 		} else {
       // log the submit error
 			console.log('Invalid credit card: ' + inputValue);
