@@ -7086,7 +7086,7 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "cac8fdfe85bbc95bda42d9376d2191d1cbff6948"
+                  "value": "feb299b18f5cc5da86de2ec8e0c81bb39a4ee106"
                 },
                 "PUBLIC_SETTINGS": {
                   "type": "undefined"
@@ -7210,7 +7210,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 2
+              "value": 0
             },
             "timeout": {
               "type": "constant",
@@ -7810,6 +7810,9 @@ var packageMetadata = {
             "prototype": {
               "type": "object",
               "members": {
+                "helpers": {
+                  "type": "function"
+                },
                 "find": {
                   "type": "function"
                 },
@@ -7859,11 +7862,11 @@ var packageMetadata = {
       "members": {
         "autoupdateVersion": {
           "type": "constant",
-          "value": "7a93917d5c7cb6987e4eeca70f66bea730718947"
+          "value": "0cc66fad635dd257fdfda209269ef138afe0ba1f"
         },
         "autoupdateVersionRefreshable": {
           "type": "constant",
-          "value": "b126fbb6504d69f136e2b9168d7d5e8434866665"
+          "value": "f802a19db74bc0f17ec577d6266cf9cff8eca9c5"
         },
         "autoupdateVersionCordova": {
           "type": "constant",
@@ -8732,7 +8735,7 @@ var packageMetadata = {
                 },
                 "pid": {
                   "type": "constant",
-                  "value": 4862
+                  "value": 4975
                 },
                 "getTaskName": {
                   "type": "function"
@@ -9760,6 +9763,9 @@ var packageMetadata = {
         "loginServiceConfiguration": {
           "type": "object",
           "members": {
+            "helpers": {
+              "type": "function"
+            },
             "find": {
               "type": "function"
             },
@@ -9811,150 +9817,163 @@ var packageMetadata = {
         "Impersonate": {
           "type": "object",
           "members": {
-            "find": {
+            "helpers": {
               "type": "function",
               "refID": 2
             },
-            "findOne": {
+            "find": {
               "type": "function",
               "refID": 4
             },
-            "insert": {
+            "findOne": {
               "type": "function",
               "refID": 6
             },
-            "update": {
+            "insert": {
               "type": "function",
               "refID": 8
             },
-            "remove": {
+            "update": {
               "type": "function",
               "refID": 10
             },
-            "upsert": {
+            "remove": {
               "type": "function",
               "refID": 12
             },
-            "rawCollection": {
+            "upsert": {
               "type": "function",
               "refID": 14
             },
-            "rawDatabase": {
+            "rawCollection": {
               "type": "function",
               "refID": 16
             },
-            "allow": {
+            "rawDatabase": {
               "type": "function",
               "refID": 18
             },
-            "deny": {
+            "allow": {
               "type": "function",
               "refID": 20
+            },
+            "deny": {
+              "type": "function",
+              "refID": 22
             }
           }
         },
         "JetSetter": {
           "type": "object",
           "members": {
-            "find": {
+            "helpers": {
               "ref": 2
             },
-            "findOne": {
+            "find": {
               "ref": 4
             },
-            "insert": {
+            "findOne": {
               "ref": 6
             },
-            "update": {
+            "insert": {
               "ref": 8
             },
-            "remove": {
+            "update": {
               "ref": 10
             },
-            "upsert": {
+            "remove": {
               "ref": 12
             },
-            "rawCollection": {
+            "upsert": {
               "ref": 14
             },
-            "rawDatabase": {
+            "rawCollection": {
               "ref": 16
             },
-            "allow": {
+            "rawDatabase": {
               "ref": 18
             },
-            "deny": {
+            "allow": {
               "ref": 20
+            },
+            "deny": {
+              "ref": 22
             }
           }
         },
         "Mongol": {
           "type": "object",
           "members": {
-            "find": {
+            "helpers": {
               "ref": 2
             },
-            "findOne": {
+            "find": {
               "ref": 4
             },
-            "insert": {
+            "findOne": {
               "ref": 6
             },
-            "update": {
+            "insert": {
               "ref": 8
             },
-            "remove": {
+            "update": {
               "ref": 10
             },
-            "upsert": {
+            "remove": {
               "ref": 12
             },
-            "rawCollection": {
+            "upsert": {
               "ref": 14
             },
-            "rawDatabase": {
+            "rawCollection": {
               "ref": 16
             },
-            "allow": {
+            "rawDatabase": {
               "ref": 18
             },
-            "deny": {
+            "allow": {
               "ref": 20
+            },
+            "deny": {
+              "ref": 22
             }
           }
         },
         "credentials": {
           "type": "object",
           "members": {
-            "find": {
+            "helpers": {
               "ref": 2
             },
-            "findOne": {
+            "find": {
               "ref": 4
             },
-            "insert": {
+            "findOne": {
               "ref": 6
             },
-            "update": {
+            "insert": {
               "ref": 8
             },
-            "remove": {
+            "update": {
               "ref": 10
             },
-            "upsert": {
+            "remove": {
               "ref": 12
             },
-            "rawCollection": {
+            "upsert": {
               "ref": 14
             },
-            "rawDatabase": {
+            "rawCollection": {
               "ref": 16
             },
-            "allow": {
+            "rawDatabase": {
               "ref": 18
             },
-            "deny": {
+            "allow": {
               "ref": 20
+            },
+            "deny": {
+              "ref": 22
             }
           }
         }
@@ -20351,6 +20370,7 @@ var packageMetadata = {
     }
   },
   "useraccounts:unstyled": {},
+  "dburles:collection-helpers": {},
   "session": {},
   "livedata": {
     "DDP": {
@@ -20428,6 +20448,9 @@ var packageMetadata = {
         "configurations": {
           "type": "object",
           "members": {
+            "helpers": {
+              "type": "function"
+            },
             "find": {
               "type": "function"
             },

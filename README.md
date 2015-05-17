@@ -65,6 +65,8 @@ There are other ways to deploy to your server besides Meteor Up. Here is a [step
 * Accounts
   * [accounts-password](https://github.com/meteor/meteor/tree/devel/packages/accounts-password)
   * [useraccounts:unstyled](https://github.com/meteor-useraccounts/core)
+* Collections
+  * [dburles:collection-helpers](https://github.com/dburles/meteor-collection-helpers/)
 * Routing
   * [iron:router](https://github.com/iron-meteor/iron-router)
 * Security

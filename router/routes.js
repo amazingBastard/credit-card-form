@@ -3,6 +3,11 @@ Router.route('/', {
   data: function() {
     return Cards.find();
   },
+  waitOn: function () {
+    return [
+      Meteor.subscribe('cards')
+    ]
+  },
   action: function () {
     if (this.ready())
       this.render('root');
@@ -14,13 +19,7 @@ Router.route('/', {
 });
 
 Router.route('/about', {
-  name: 'about',
-  action: function () {
-    if (this.ready())
-      this.render('about');
-    else
-      this.render('loading');
-  }
+  name: 'about'
 }, function () {
   SEO.set({ title: Meteor.App.NAME });
 });

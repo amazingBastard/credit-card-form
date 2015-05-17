@@ -22,3 +22,4 @@ jparker:crypto-core
 jparker:crypto-md5
 accounts-password
 useraccounts:unstyled
+dburles:collection-helpers
