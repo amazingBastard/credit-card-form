@@ -15,8 +15,11 @@ Demo here: [ccform.meteor.com](http://ccform.meteor.com). You can use the test u
   * [Requirements](#requirements)
   * [Installation](#installation)
   * [Deployments](#deployments)
-  * [SEO and other concerns](#seo-and-other-concerns)
-  * [Adding allow rules for external URLs](#adding-allow-rules-for-external-urls)
+  * [Configs](#configs)
+  * [Template Helpers](#template-helpers)
+  * [Constants](#constants)
+  * [Stylesheets](#stylesheets)
+  * [Templates](#templates)
 * [Structure](#structure)
   * [Packages used](#packages-used)
   * [Folder structure](#folder-structure)
@@ -41,6 +44,13 @@ cd mtr-ccform
 meteor
 ```
 
+### Deployments
+
+It is highly recommended to use [Meteor Up](https://github.com/arunoda/meteor-up) for easy deployments.
+Have a look at the repository for more information.
+
+There are other ways to deploy to your server besides Meteor Up. Here is a [step by step guide from Digital Ocean](http://devo.ps/blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes/).
+
 ### Configs
 
 Configs to the accounts, alerts, router, and seo packages are located in:
@@ -61,13 +71,42 @@ I've defined all the helpers in:
 
 It's also possible to define your helpers in the template you're working with. For example, if you have a helper specific to your header or footer template you can define it to that specific template. The advantage of adding helpers in lib allows you to call them globally in any template.
 
+### Constants
 
-### Deployments
+I defined some app constants in:
 
-It is highly recommended to use [Meteor Up](https://github.com/arunoda/meteor-up) for easy deployments.
-Have a look at the repository for more information.
+```
+/client/lib/constants.js
+```
 
-There are other ways to deploy to your server besides Meteor Up. Here is a [step by step guide from Digital Ocean](http://devo.ps/blog/deploy-your-meteor-apps-on-digital-ocean-in-5-minutes/).
+Mainly static data like the app name and description as well as other meta data. I also created a card property array that I reference in a keyup event for the card form.
+
+### Stylesheets
+
+I make use of the less package when it comes to styling. The structure mirrors the templates structure so its easier to manage all your styles as the app grows in size.
+
+I defined all variables used in the stylesheets in:
+
+```
+/client/stylesheets/utilities/variables.less
+```
+This lets you change all the apps brand hex, fonts, backgrounds, alerts, animation speeds, margin/padding sizes, widths, media queries, etc...
+
+Most reusable component styles such as buttons, forms, etc will be found in:
+
+```
+/client/stylesheets/components/
+```
+
+Meanwhile, individual styles for views will be in:
+
+```
+/client/stylesheets/views/
+```
+
+### Templates
+
+
 
 ## Structure
 
