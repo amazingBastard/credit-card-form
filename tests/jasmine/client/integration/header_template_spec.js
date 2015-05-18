@@ -14,7 +14,7 @@ describe('Header template', function() {
 		expect($(link).find('#about')[0]).toBeDefined();
 		expect($(link).find('#root')[0]).not.toBeDefined();
 	});
-
+ 
 	it('should show a link to the root view if the current route is /about', function() {
 		spyOn(UI._globalHelpers, 'inRoot').and.returnValue(false);
 
