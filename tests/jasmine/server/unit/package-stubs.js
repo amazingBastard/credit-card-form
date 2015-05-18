@@ -7085,7 +7085,7 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "3bb2fca1887e988b7aba06def6aa05188d9bb719"
+                  "value": "f1b6e1fa9ad59eb6e84aa7f5cdf8b8903636f058"
                 },
                 "PUBLIC_SETTINGS": {
                   "type": "undefined"
@@ -7209,7 +7209,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 4
+              "value": 6
             },
             "timeout": {
               "type": "constant",
@@ -7861,11 +7861,11 @@ var packageMetadata = {
       "members": {
         "autoupdateVersion": {
           "type": "constant",
-          "value": "bcdbf184b5e776f056dce7bd24a8ce359a68e043"
+          "value": "4ef15c5841efa22fb03308e2144bafbfed120a48"
         },
         "autoupdateVersionRefreshable": {
           "type": "constant",
-          "value": "cd7c5826a5c1b6170a83a076b78011e2572f08f9"
+          "value": "5283cd0fbc562c12c0106fa21ea81bd8735157e3"
         },
         "autoupdateVersionCordova": {
           "type": "constant",
@@ -8719,50 +8719,7 @@ var packageMetadata = {
       "type": "object",
       "members": {
         "karmaChilds": {
-          "type": "object",
-          "members": {
-            "jasmine-client-unit": {
-              "type": "object",
-              "members": {
-                "taskName": {
-                  "type": "constant",
-                  "value": "jasmine-client-unit"
-                },
-                "appPath": {
-                  "type": "constant",
-                  "value": "/Users/dvazgird/Projects/mtr-ccform"
-                },
-                "pid": {
-                  "type": "constant",
-                  "value": 5461
-                },
-                "getTaskName": {
-                  "type": "function"
-                },
-                "getChild": {
-                  "type": "function"
-                },
-                "getPid": {
-                  "type": "function"
-                },
-                "isDead": {
-                  "type": "function"
-                },
-                "isRunning": {
-                  "type": "function"
-                },
-                "readPid": {
-                  "type": "function"
-                },
-                "spawn": {
-                  "type": "function"
-                },
-                "kill": {
-                  "type": "function"
-                }
-              }
-            }
-          }
+          "type": "object"
         },
         "getKarmaChild": {
           "type": "function"
