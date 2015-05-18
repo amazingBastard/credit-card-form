@@ -136,9 +136,9 @@ Besides defining the global variable Cards as a new Mongo collection. We also se
 
 Using the collection_helpers package we can add helpers on the server side for your collections. This gives us an added advantage since we won't need to subscribe to the collection on the client.
 
-We can also add Methods to the collection via the Meteor.method function. In this example I just created a method to insert new cards.
+We can also add Methods to the collection via the Meteor.method function. In this example I just created a method to insert new cards. I placed the methods in the server: **/server/methods/cards.js**
 
-See the code for this in: **/models/cards.js**
+You can find the code for the cards model in: **/models/cards.js**
 
 ### Router
 
@@ -150,9 +150,11 @@ All server related code should be placed in the server dir. Meteor is smart enou
 
 Since this example is client heavy, a lot of the code can be found on the client, specifically in the card_form file.
 
-The server usually handles things related to the database, such as publications: **/server/publications/cards.js**
+The server usually handles things related to the database, such as publications: **/server/publications/cards.js** and **/server/methods/cards.js**
 
-Here I'm just publishing the Cards collection for the current user. This allows me to manage what gets sent to the client. Since we don't need everyone's cards pushed to the client, we're only publishing the current users cards. This makes the app faster in the long run once our database grows.
+In publications I'm just publishing the Cards collection for the current user. This allows me to manage what gets sent to the client. Since we don't need everyone's cards pushed to the client, we're only publishing the current users cards. This makes the app faster in the long run once our database grows.
+
+The server method is also pretty straight forwards. insertCard just checks if user is logged in and if a value was entered. Then it inserts the new card into the collection.
 
 ### Tests
 
@@ -215,6 +217,12 @@ server/             # Server folder
   publications/       # Collection publications
   startup/            # On server startup
 tests/              # All tests
+  client/             # client tests
+    integration/        # integration tests
+    unit/               # unit tests
+  server/             # server tests
+    integration/        # integration tests
+    unit/               # unit tests
 ```
 
 ## License

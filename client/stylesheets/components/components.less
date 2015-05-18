@@ -1,0 +1,43 @@
+@import '../utilities/variables';
+
+// components styles
+
+.component {
+
+	&.loading {
+		position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: @full;
+	  height: @full;
+		background: fade(@gray-darker, @one-half);
+
+		.loader {
+			width: @space-jumbo;
+			margin: 45vh auto;
+
+			.fa-spinner {
+			  color: @primary-color;
+				font-size: @space-jumbo;
+	    }
+	  }
+	}
+
+	&.redirect {
+		width: @one-half;
+		margin: 25vh auto;
+		padding: @space-base;
+	  border-radius: @space-mini;
+		background: @background-color;
+		box-shadow: 0 0 @space-mini @space-mini fade(@gray, 50%);
+		text-align: center;
+	}
+
+	&.label {
+		display: inline-block;
+		padding: @space-tiny;
+		background: @secondary-color;
+		border-radius: @space-mini;
+		color: @light;
+	}
+}

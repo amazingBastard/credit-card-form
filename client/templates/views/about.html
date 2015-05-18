@@ -54,15 +54,16 @@
     <p>Models is where you'll place all the database collections. In this example there's only the Cards collection.</p>
     <p>Besides defining the global variable Cards as a new Mongo collection. We also setup the crud allow rules. Since we only want logged in users inserting new cards, we establish an owner with the current user's id.</p>
     <p>Using the collection_helpers package we can add helpers on the server side for your collections. This gives us an added advantage since we won't need to subscribe to the collection on the client.</p>
-    <p>We can also add Methods to the collection via the Meteor.method function. In this example I just created a method to insert new cards.</p>
-    <p>See the code for this in <strong>/models/cards.js</strong></p>
+    <p>We can also add Methods to the collection via the Meteor.method function. In this example I just created a method to insert new cards. I placed the methods in the server: <strong>/server/methods/cards.js</strong></p>
+    <p>You can find the code for the cards model in <strong>/models/cards.js</strong></p>
     <h4>Router</h4>
     <p>The app uses the iron:router package to give us routing functionality. We can also create routes for the server but in this example I've only created two routes: <strong>/</strong> and <strong>/about</strong>. These routes live in: <strong>/router/routes.js</strong></p>
     <h4>Server</h4>
     <p>All server related code should be placed in the server dir. Meteor is smart enough to know that code in the server dir should be run on the server. Likewise, anything in the client dir will run on the client.</p>
     <p>Since this example is client heavy, a lot of the code can be found on the client, specifically in the card_form file.</p>
-    <p>The server usually handles things related to the database, such as publications: <strong>/server/publications/cards.js</strong></p>
-    <p>Here I'm just publishing the Cards collection for the current user. This allows me to manage what gets sent to the client. Since we don't need everyone's cards pushed to the client, we're only publishing the current users cards. This makes the app faster in the long run once our database grows.</p>
+    <p>The server usually handles things related to the database, such as publications: <strong>/server/publications/cards.js</strong> and <strong>/server/methods/cards.js</strong></p>
+    <p>In publications I'm just publishing the Cards collection for the current user. This allows me to manage what gets sent to the client. Since we don't need everyone's cards pushed to the client, we're only publishing the current users cards. This makes the app faster in the long run once our database grows.</p>
+    <p>The server method is also pretty straight forwards. insertCard just checks if user is logged in and if a value was entered. Then it inserts the new card into the collection.</p>
     <h4>Testing</h4>
     <p>Testing is handled by <a href="http://velocity.meteor.com/" target="_blank">Velocity</a>. I decided to use the Jasmine framework since I'm more familiar with it but Velocity gives you the options to use mocha, cucumber, robot, etc...</p>
     <p>When you run the app locally, an HTML reporter will be available so you can check the status of the tests. The velocity reporter can be toggled with the button on the top right.</p>
@@ -75,7 +76,7 @@
         lib/                # Library files that get executed first
         startup/            # Javascript files on Meteor.startup()
         stylesheets         # LESS files
-      	templates/          # Contains all templates
+        templates/          # Contains all templates
           layouts/            # Router layouts
           views/              # All the views
           components/         # UI elements and components (i.e. forms, actions, etc...)
@@ -89,6 +90,12 @@
         publications/       # Collection publications
         startup/            # On server startup
       tests/              # All tests
+        client/             # client tests
+          integration/        # integration tests
+          unit/               # unit tests
+        server/             # server tests
+          integration/        # integration tests
+          unit/               # unit tests
     </pre>
 	</div>
 </template>
