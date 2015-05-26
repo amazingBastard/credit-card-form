@@ -1,4 +1,4 @@
-# Coding Challenge
+# Credit Card Form
 
 Credit Card form prototype built with Meteor. Features a fully functioning card form that:
 
