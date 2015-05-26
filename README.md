@@ -1,4 +1,4 @@
-# VENMO Coding Challenge
+# Coding Challenge
 
 Credit Card form prototype built with Meteor. Features a fully functioning card form that:
 
